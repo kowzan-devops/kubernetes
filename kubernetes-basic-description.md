@@ -46,13 +46,7 @@ Kubelet
 - responsible to check if containers are running on the nodes as expected
 
 #### Pods
-- The smallest object within the Kubernetes ecosystem
-- pod = container or containers + storage resources + unique IP + local options
-- Labels - User defined Key:Value pair associated to Pods  
 
-#### Deployment
-- object that manages a replicated application
-- making sure to automatically replace any instances that fail or become unresponsive
 
 #### Service(s)
 An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
@@ -114,8 +108,13 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - CronJob / cronjobs / cj
 - DaemonSet / daemonsets / ds
 - Deployment / deployments / deploy
+> object that manages a replicated application
+> making sure to automatically replace any instances that fail or become unresponsive
 - Job / jobs
 - Pod / pods / po
+> The smallest object within the Kubernetes ecosystem
+> pod = container or containers + storage resources + unique IP + local options
+> Labels - User defined Key:Value pair associated to Pods  
 - ReplicaSet / replicasets / rs
 - ReplicationController / replicationcontrollers / rc
 - StatefulSet / statefulsets / sts
