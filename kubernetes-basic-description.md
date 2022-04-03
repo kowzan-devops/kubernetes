@@ -114,7 +114,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 > What is a statefulset application?  
 > Stateful applications save data to persistent disk storage for use by the server, by clients, and by other applications  
 > An example of a stateful application is a database or key-value store to which data is saved and retrieved by other applications  
-> Using StatefulSets  
+> **Using StatefulSets**  
 > StatefulSets are valuable for applications that require one or more of the following.  
 
       Stable, unique network identifiers.
