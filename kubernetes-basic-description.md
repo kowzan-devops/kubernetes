@@ -87,29 +87,29 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 
 ### Workloads
 
-- Container
+- **Container**
 > software package ready-to-run an application: the code and any runtime environment, settings and libraries
-- CronJob / cronjobs / cj
+- **CronJob** / cronjobs / cj
 > object that creates Jobs on a repeating schedule
-- DaemonSet / daemonsets / ds
+- **DaemonSet** / daemonsets / ds
 > A DaemonSet ensures that all (or some) Nodes run a copy of a Pod.  
 > As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected.  
 > Deleting a DaemonSet will clean up the Pods it created.
-- Deployment / deployments / deploy
+- **Deployment** / deployments / deploy
 > object that manages a replicated application
 > making sure to automatically replace any instances that fail or become unresponsive
-- Job / jobs
-> supervise a set of pods that run to complete process, that runs for a certain time, like calculation or a backup operation.
-- Pod / pods / po
+- **Job** / jobs
+> supervise a set of pods that run to completion process, that runs for a certain time, like calculation or a backup operation.
+- **Pod** / pods / po
 > The smallest object within the Kubernetes ecosystem  
 > pod = container or containers + storage resources + unique IP + local options  
 > Labels - User defined Key:Value pair associated to Pods  
-- ReplicaSet / replicasets / rs
+- **ReplicaSet** / replicasets / rs
 > object that ensures there is always a stable set of running pods for a specific workload
 > if a pod is evicted or fails, creates more pods to compensate for the loss
-- ReplicationController / replicationcontrollers / rc
+- **ReplicationController** / replicationcontrollers / rc
 > ensures that a specified number of pod replicas are running at any one time (up and running)
-- StatefulSet / statefulsets / sts
+- **StatefulSet** / statefulsets / sts
 > like a deployment, but for non-interchangeable (or stateful) underlying pods, that are based on an identical container spec.  
 > Unlike a Deployment, a StatefulSet maintains a persistent identifier for each of their Pods.  
 > What is a statefulset application?  
@@ -126,19 +126,25 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 ### Services
 
 - Endpoints / endpoints / ep
-- EndpointSlice / endpointslices
-- Ingress / ingresses / ing
-- IngressClass / ingressclasses
-- Service / services / svc
-> An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload.
+> resource that gets IP addresses of one or more pods dynamically assigned to it, along with a port.  
+- EndpointSlice / endpointslices  
+- Ingress / ingresses / ing  
+> API object that provides routing rules to manage external users' access to the services in a Kubernetes cluster, typically via HTTPS/HTTP  
+- IngressClass / ingressclasses  
+- Service / services / svc  
+> An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload.  
+
 ### Config & Storage
 
 - ConfigMap / configmaps / cm
+> API object that allows you to store data as key-value pairs.  
+> Kubernetes pods can use ConfigMaps as configuration files, environment variables or command-line arguments.  
 - CSIDriver / csidrivers
 - CSINode / csinodes
 - Secret / secrets
 > Secrets let you store and manage sensitive information such as passwords, OAuth tokens, and ssh keys
 - PersistentVolumeClaim / persistentvolumeclaims / pvc
+> is a request for storage by a user, PVCs consume PV resources: request specific size and access modes
 - StorageClass / storageclasses / sc
 - CSIStorageCapacity
 - Volume
@@ -148,6 +154,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 ### Clusters
 
 - APIService / apiservices
+> APIService represents a server for a particular GroupVersion. Name must be "version.group".
 - Binding / bindings
 - CertificateSigningRequest / certificatesigningrequests / csr
 - ClusterRole / clusterroles
@@ -161,6 +168,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - NetworkPolicy / networkpolicies / netpol
 - Node / nodes / no
 - PersistentVolume / persistentvolumes / pv
+> PVs are volume plugins like Volumes, but have a lifecycle independent of any individual Pod that uses the PV. They don't turn off when pod fails
 - PriorityLevelConfiguration / prioritylevelconfigurations
 - ResourceQuota / resourcequotas / quota
 - Role / roles
@@ -169,9 +177,11 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - SelfSubjectAccessReview / selfsubjectaccessreviews
 - SelfSubjectRulesReview / selfsubjectrulesreviews
 - ServiceAccount / serviceaccounts / sa
+> service accounts are used to provide an identity for pods. Pods that want to interact with the API server will authenticate with a particular service account.
 - StorageVersion
 - SubjectAccessReview / subjectaccessreviews
 - TokenRequest
+> TokenRequest requests a token for a given service account.
 - TokenReview / tokenreviews
 
 ### Metadata
@@ -179,6 +189,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - ControllerRevision / controllerrevisions
 - CustomResourceDefinition / customresourcedefinitions / crd,crds
 - Event / events / ev
+> an object in the framework that is automatically generated in response to changes with other resources—like nodes, pods, or containers
 - LimitRange / limitranges / limits
 - HorizontalPodAutoscaler / horizontalpodautoscalers / hpa
 - MutatingWebhookConfiguration / mutatingwebhookconfigurations
@@ -186,7 +197,9 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - PodTemplate / podtemplates
 - PodDisruptionBudget / poddisruptionbudgets / pdb
 - PriorityClass / priorityclasses / pc
+> Value specified in the object's metadata (higher value, higher priority)  
 - PodSecurityPolicy / podsecuritypolicies / psp
+> cluster-level resource that controls security sensitive aspects of the pod specification. The PodSecurityPolicy objects define a set of conditions that a pod must run with
 
 #### Service(s)
 An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
