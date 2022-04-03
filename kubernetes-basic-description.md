@@ -41,13 +41,13 @@ Kubelet
 
 ### kubectl Example commands:
 
-      kubectl cluster-info
-      kubectl run hello-minikube
+   kubectl cluster-info
+   kubectl get nodes
+   kubectl run hello-minikube
+   kubectl run --replicas=10 my-web-app --image=my-web-app
 
 
 > kubectl scale --replicas=10 my-web-server
-> 
-> kubectl run --replicas=10 my-web-server
 > 
 > kubectl rolling-update my-web-server --image=web-server:2
 > 
