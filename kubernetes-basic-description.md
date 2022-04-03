@@ -116,10 +116,10 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 > An example of a stateful application is a database or key-value store to which data is saved and retrieved by other applications  
 > Using StatefulSets  
 > StatefulSets are valuable for applications that require one or more of the following.  
-    Stable, unique network identifiers.
-    Stable, persistent storage.
-    Ordered, graceful deployment and scaling.
-    Ordered, automated rolling updates.
+      Stable, unique network identifiers.
+      Stable, persistent storage.
+      Ordered, graceful deployment and scaling.
+      Ordered, automated rolling updates.
 
 ### Services
 
