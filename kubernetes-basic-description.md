@@ -7,41 +7,41 @@
 
 ### Cluster overview
 
-Kubernetes Cluster
+**Kubernetes Cluster**
 - Group of physical or virtual servers wherein  Kubernetes is installed 
 - Cluster is composed of Master node and Worker nodes.
 
 Kubernetes uses Docker Host to host application, in the form of Docker containers
 
-Master node (Master):
+**Master node (Master):**
 - Physical or virtual server that controls the Kubernetes cluster - has Control Plane component
 - makes orchestration of containers on Worker nodes
 - has information about members of the cluster, how nodes are monitored, where to direct workload when node fails
 
-Worker node (Worker):
+**Worker node (Worker):**
 - Physical or virtual servers where workloads run in a given container technology 
 
 ![k8s-master-worker-nodes-cluster.png](https://i.ibb.co/K70QMSF/k8s-master-worker-nodes-cluster.png)
 
-API Server
+**API Server**
 - frontend for Kubernetes (user's CLI commands, devices)
 
-etcd
+**etcd**
 - distributed key-value store, which stores all data used to manage the cluster, like how many nodes, how many masters,
 - implementing logs within the cluster, to ensure there are no conflicts between the masters
 
-Scheduler
+**Scheduler**
 - responsible for distributing work or containters across multiple Nodes
 - looks for newly created containers and assigns them to Nodes
 
-Controller(s)
+**Controller(s)**
 - are orchestration's brain, responsible for noticing and responding when nodes, containers or endpoints goes down
 - bring up new containers
 
-Container runtime
+**Container runtime**
 - underlying software that is used to run containers - here it is Docker
 
-Kubelet
+**Kubelet**
 - agent that runs on each node (service that communicates with the master)
 - responsible to check if containers are running on the nodes as expected
 
@@ -99,13 +99,27 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 > object that manages a replicated application
 > making sure to automatically replace any instances that fail or become unresponsive
 - Job / jobs
+> supervise a set of pods that run to complete process, that runs for a certain time, like calculation or a backup operation.
 - Pod / pods / po
 > The smallest object within the Kubernetes ecosystem  
 > pod = container or containers + storage resources + unique IP + local options  
 > Labels - User defined Key:Value pair associated to Pods  
 - ReplicaSet / replicasets / rs
+> object that ensures there is always a stable set of running pods for a specific workload
+> if a pod is evicted or fails, creates more pods to compensate for the loss
 - ReplicationController / replicationcontrollers / rc
+> ensures that a specified number of pod replicas are running at any one time (up and running)
 - StatefulSet / statefulsets / sts
+> Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.
+> What is a statefulset application?  
+> Stateful applications save data to persistent disk storage for use by the server, by clients, and by other applications  
+> An example of a stateful application is a database or key-value store to which data is saved and retrieved by other applications  
+> Using StatefulSets  
+> StatefulSets are valuable for applications that require one or more of the following.  
+    Stable, unique network identifiers.
+    Stable, persistent storage.
+    Ordered, graceful deployment and scaling.
+    Ordered, automated rolling updates.
 
 ### Services
 
