@@ -54,8 +54,27 @@ Labels
 Master
 - Control plane components which provide access  point for admins to manage cluster workloads 
 
-Service
-- An abstraction which serves as a proxy for a group of Pods performing a “service”
+Service(s)
+
+An abstraction which serves as a proxy for a group of Pods performing a “service”
+
+Types of services
+
+- ClusterIP is the default ServiceType, ClusterIP services have a cluster-internal IP address, so they can only be reached by other cluster components.  
+- NodePort enables you to create a service that’s available from outside the cluster by exposing the service on the same port for every node. For example, the same service might be available on host1.example.com:32768, host2.example.com:32768, and host3.example.com:32768.
+- LoadBalancer requires coordination with your cloud provider’s load balancer, which automatically routes requests to the service. For this reason, not all distributions of Kubernetes will support LoadBalancer services. 
+- ExternalName is the most complex ServiceType, coordinating the service with your DNS server.
+
+Port forwarding:
+
+kubectl port-forward podname PORT:TARGET_PORT
+- port: the port receiving the request (on my PC)
+- targetPort: the container's port receiving the request
+
+Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
+- kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
+
+so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
 
 ### kubectl Example commands:
 
