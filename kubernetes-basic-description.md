@@ -117,10 +117,10 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 > Using StatefulSets  
 > StatefulSets are valuable for applications that require one or more of the following.  
 
-            Stable, unique network identifiers.
-            Stable, persistent storage.
-            Ordered, graceful deployment and scaling.
-            Ordered, automated rolling updates.
+      Stable, unique network identifiers.
+      Stable, persistent storage.
+      Ordered, graceful deployment and scaling.
+      Ordered, automated rolling updates.
 
 ### Services
 
