@@ -110,7 +110,8 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - ReplicationController / replicationcontrollers / rc
 > ensures that a specified number of pod replicas are running at any one time (up and running)
 - StatefulSet / statefulsets / sts
-> Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.
+> like a deployment, but for non-interchangeable (or stateful) underlying pods, that are based on an identical container spec.  
+> Unlike a Deployment, a StatefulSet maintains a persistent identifier for each of their Pods.  
 > What is a statefulset application?  
 > Stateful applications save data to persistent disk storage for use by the server, by clients, and by other applications  
 > An example of a stateful application is a database or key-value store to which data is saved and retrieved by other applications  
@@ -190,10 +191,10 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 #### Service(s)
 An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
 
-- ClusterIP is the default ServiceType, ClusterIP services have a cluster-internal IP address, so they can only be reached by other cluster components.  
-- NodePort enables you to create a service that’s available from outside the cluster by exposing the service on the same port for every node. For example, the same service might be available on host1.example.com:32768, host2.example.com:32768, and host3.example.com:32768.
-- LoadBalancer requires coordination with your cloud provider’s load balancer, which automatically routes requests to the service. For this reason, not all distributions of Kubernetes will support LoadBalancer services. 
-- ExternalName is the most complex ServiceType, coordinating the service with your DNS server.
+- ClusterIP = exposes services only inside the cluster (default)  
+- NodePort = exposes services at the specified port on all nodes (<node-ip>:<nodePort>)  
+- LoadBalancer = exposes the service with a cloud-provider’s load balancer  
+- ExternalName = this maps a service to endpoints completely outside of the cluster  
 
 Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
 - kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
