@@ -42,13 +42,16 @@ Container runtime
 - underlying software that is used to run containers - here it is Docker
 
 Kubelet
-- agent that runs on each node
+- agent that runs on each node (service that communicates with the master)
 - responsible to check if containers are running on the nodes as expected
+
+**kube-proxy = proxy for connecting to the cluster network**
 
 ### kubectl Example commands:
 
       kubectl cluster-info
       kubectl config view # view cluster and client configuration
+      kubectl api-resources
       kubectl get nodes
       kubectl explain pods # explain = manual
       kubectl run hello-minikube
@@ -69,6 +72,7 @@ Kubelet
       kubectl rolling-update my-web-server --rolback
 
       # Create a resource
+      kubectl run <pod-name> --image=<image-name> --restart=Never -o yaml --dry-run > pod.yaml
       kubectl create -f ./my-manifest.yaml
       kubectl create deployment my-manifest --image=nginx
 
@@ -122,6 +126,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - StorageClass / storageclasses / sc
 - CSIStorageCapacity
 - Volume
+> sometimes-shared, persistent storage
 - VolumeAttachment / volumeattachments
 
 ### Clusters
@@ -136,6 +141,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - Lease / leases
 - LocalSubjectAccessReview / localsubjectaccessreviews
 - Namespace / namespaces/ns
+> virtual cluster on top of an underlying physical cluster
 - NetworkPolicy / networkpolicies / netpol
 - Node / nodes / no
 - PersistentVolume / persistentvolumes / pv
@@ -182,3 +188,9 @@ Create a service that directs requests on port 80 to container port 8000 (simple
 kubectl port-forward podname PORT:TARGET_PORT
 - port: the port receiving the request (on my PC)
 - targetPort: the container's port receiving the request
+
+#### Draining
+
+> There may be scenarios where a faulty node has been identified and will need maintenance or to be decommissioned - what would be the safest way to evict all workloads to another node before removing the faulty node from service?  
+> The drain command safely evicts all of your pods by terminating them gracefully, while only leaving node-critical workloads such as networking and logging components:  
+> kubectl drain <node-name> --delete-local-data --ignore-daemonsets
