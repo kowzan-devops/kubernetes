@@ -13,6 +13,13 @@
 
 ![k8s-worker-nodes.png](https://i.ibb.co/VQ1LcZq/k8s-worker-nodes.png)
 
+Kubernetes uses Docker Host to host application, in the form of Docker containers
+
+Kubernetes Cluster is composed of Master node and Worker nodes.
+Node is phisical machine. 
+Master node - has Kubernetes control plane component, makes orchestration of containers on worker nodes. It is responsible for managing the cluster, information about members of the cluster, stores information how nodes are monitored, where to direct workload when node fails
+
+![k8s-master-worker-nodes-cluster.png](https://i.ibb.co/K70QMSF/k8s-master-worker-nodes-cluster.png)
 
 Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
 AngularJS-powered HTML5 Markdown editor.
