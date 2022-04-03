@@ -45,42 +45,42 @@ Kubelet
 - agent that runs on each node
 - responsible to check if containers are running on the nodes as expected
 
-Pods
-- Group of containers and volumes which share the  same network namespace 
+#### Pods
+- The smallest object within the Kubernetes ecosystem
+- pod = container or containers + storage resources + unique IP + local options
+- Labels - User defined Key:Value pair associated to Pods  
 
-Labels
-- User defined Key:Value pair associated to Pods  
+#### Deployment
+- object that manages a replicated application
+- making sure to automatically replace any instances that fail or become unresponsive
 
-Master
-- Control plane components which provide access  point for admins to manage cluster workloads 
-
-Service(s)
-
-An abstraction which serves as a proxy for a group of Pods performing a “service”
-
-Types of services
+#### Service(s)
+An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
 
 - ClusterIP is the default ServiceType, ClusterIP services have a cluster-internal IP address, so they can only be reached by other cluster components.  
 - NodePort enables you to create a service that’s available from outside the cluster by exposing the service on the same port for every node. For example, the same service might be available on host1.example.com:32768, host2.example.com:32768, and host3.example.com:32768.
 - LoadBalancer requires coordination with your cloud provider’s load balancer, which automatically routes requests to the service. For this reason, not all distributions of Kubernetes will support LoadBalancer services. 
 - ExternalName is the most complex ServiceType, coordinating the service with your DNS server.
 
-Port forwarding:
+Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
+- kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
+- so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
+#### Port forwarding:
 
 kubectl port-forward podname PORT:TARGET_PORT
 - port: the port receiving the request (on my PC)
 - targetPort: the container's port receiving the request
 
-Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
-- kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
-
-so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
 
 ### kubectl Example commands:
 
       kubectl cluster-info
+      kubectl config view # view cluster and client configuration
       kubectl get nodes
+      kubectl explain pods # explain = manual
       kubectl run hello-minikube
+      kubectl attach mywebserver -c mynginx -i # connect to a running container
+      kubectl exec mywebserver -- /home/user/myscript.sh # run a command in a single container pod
       kubectl run --replicas=10 my-web-app --image=my-web-app
       kubectl get pods --field-selector status.phase=Running
       kubectl get pods --field-selector=status.phase!=Running,spec.restartPolicy=Always
@@ -88,11 +88,20 @@ so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
       #selects all Statefulsets and Services that are not in the default namespace
       kubectl get statefulsets,services --all-namespaces --field-selector metadata.namespace!=default 
 
-> kubectl scale --replicas=10 my-web-server
-> 
-> kubectl rolling-update my-web-server --image=web-server:2
-> 
-> kubectl rolling-update my-web-server --rolback 
+      # Scale a resource
+      kubectl scale --replicas=3 deployment.apps/my-web-server
+      kubectl scale --replicas=3 -f my-manifest.yaml
+
+      kubectl rolling-update my-web-server --image=web-server:2
+      kubectl rolling-update my-web-server --rolback
+
+      # Create a resource
+      kubectl create -f ./my-manifest.yaml
+      kubectl create deployment my-manifest --image=nginx
+
+      # Delete a resource
+      kubectl delete -f ./my-manifest.yaml
+      kubectl delete deployment my-manifest
 
 
 # List of Kubernetes objects
@@ -125,6 +134,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - CSIDriver / csidrivers
 - CSINode / csinodes
 - Secret / secrets
+> Secrets let you store and manage sensitive information such as passwords, OAuth tokens, and ssh keys
 - PersistentVolumeClaim / persistentvolumeclaims / pvc
 - StorageClass / storageclasses / sc
 - CSIStorageCapacity
