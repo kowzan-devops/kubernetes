@@ -45,27 +45,6 @@ Kubelet
 - agent that runs on each node
 - responsible to check if containers are running on the nodes as expected
 
-#### Pods
-
-
-#### Service(s)
-An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
-
-- ClusterIP is the default ServiceType, ClusterIP services have a cluster-internal IP address, so they can only be reached by other cluster components.  
-- NodePort enables you to create a service that’s available from outside the cluster by exposing the service on the same port for every node. For example, the same service might be available on host1.example.com:32768, host2.example.com:32768, and host3.example.com:32768.
-- LoadBalancer requires coordination with your cloud provider’s load balancer, which automatically routes requests to the service. For this reason, not all distributions of Kubernetes will support LoadBalancer services. 
-- ExternalName is the most complex ServiceType, coordinating the service with your DNS server.
-
-Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
-- kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
-- so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
-#### Port forwarding:
-
-kubectl port-forward podname PORT:TARGET_PORT
-- port: the port receiving the request (on my PC)
-- targetPort: the container's port receiving the request
-
-
 ### kubectl Example commands:
 
       kubectl cluster-info
@@ -105,8 +84,13 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 ### Workloads
 
 - Container
+> software package ready-to-run an application: the code and any runtime environment, settings and libraries
 - CronJob / cronjobs / cj
+> object that creates Jobs on a repeating schedule
 - DaemonSet / daemonsets / ds
+> A DaemonSet ensures that all (or some) Nodes run a copy of a Pod.  
+> As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected.  
+> Deleting a DaemonSet will clean up the Pods it created.
 - Deployment / deployments / deploy
 > object that manages a replicated application
 > making sure to automatically replace any instances that fail or become unresponsive
@@ -126,7 +110,7 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - Ingress / ingresses / ing
 - IngressClass / ingressclasses
 - Service / services / svc
-
+> An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload.
 ### Config & Storage
 
 - ConfigMap / configmaps / cm
@@ -181,3 +165,20 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 - PodDisruptionBudget / poddisruptionbudgets / pdb
 - PriorityClass / priorityclasses / pc
 - PodSecurityPolicy / podsecuritypolicies / psp
+
+#### Service(s)
+An abstraction which serves as a proxy for a group of Pods, performing a “service”, it means that service makes sure that network traffic can be directed to the pods for the workload. Types of services:
+
+- ClusterIP is the default ServiceType, ClusterIP services have a cluster-internal IP address, so they can only be reached by other cluster components.  
+- NodePort enables you to create a service that’s available from outside the cluster by exposing the service on the same port for every node. For example, the same service might be available on host1.example.com:32768, host2.example.com:32768, and host3.example.com:32768.
+- LoadBalancer requires coordination with your cloud provider’s load balancer, which automatically routes requests to the service. For this reason, not all distributions of Kubernetes will support LoadBalancer services. 
+- ExternalName is the most complex ServiceType, coordinating the service with your DNS server.
+
+Create a service that directs requests on port 80 to container port 8000 (simple LoadBalancer)
+- kubectl expose deployment nginx --port=80 --target-port=8000 --type=LoadBalancer
+- so if I write in Firefox IP_ADDRESS of POD (default 80) website will appear
+#### Port forwarding:
+
+kubectl port-forward podname PORT:TARGET_PORT
+- port: the port receiving the request (on my PC)
+- targetPort: the container's port receiving the request
