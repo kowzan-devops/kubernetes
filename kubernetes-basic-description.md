@@ -70,7 +70,8 @@ Service
 > 
 > kubectl rolling-update my-web-server --rolback 
 
-## List of Kubernetes objects
+
+# List of Kubernetes objects
 
 Kubernetes enables you to control and orchestrate various types of objects, either by their full name or their “shortname”.  These objects include:
 
