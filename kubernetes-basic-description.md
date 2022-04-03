@@ -4,8 +4,11 @@
 ![orchestration-tools.png](https://i.ibb.co/JRSbqQX/orchestration-tools.png)
 
 > kubectl scale --replicas=10 my-web-server
+> 
 > kubectl run --replicas=10 my-web-server
+> 
 > kubectl rolling-update my-web-server --image=web-server:2
+> 
 > kubectl rolling-update my-web-server --rolback 
 
 ![k8s-worker-nodes.png](https://i.ibb.co/VQ1LcZq/k8s-worker-nodes.png)
