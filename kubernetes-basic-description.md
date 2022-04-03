@@ -112,10 +112,8 @@ Kubernetes enables you to control and orchestrate various types of objects, eith
 > making sure to automatically replace any instances that fail or become unresponsive
 - Job / jobs
 - Pod / pods / po
-> The smallest object within the Kubernetes ecosystem
-> 
-> pod = container or containers + storage resources + unique IP + local options
-> 
+> The smallest object within the Kubernetes ecosystem  
+> pod = container or containers + storage resources + unique IP + local options  
 > Labels - User defined Key:Value pair associated to Pods  
 - ReplicaSet / replicasets / rs
 - ReplicationController / replicationcontrollers / rc
