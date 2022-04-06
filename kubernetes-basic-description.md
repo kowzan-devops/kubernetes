@@ -135,6 +135,11 @@
 - netstat -l
 - lsof -i
 
+### git ###
+
+**git fork**
+- git fork creates a completely independent copy of Git repository. In contrast to a fork, a Git clone creates a linked copy that will continue to synchronize with the target repository.
+
 # Kubernetes basics
 ## _Container orchestration tools_
 
