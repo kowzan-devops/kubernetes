@@ -1,3 +1,28 @@
+# Linux
+
+**Info about the linux system**
+- cat /proc/version
+- uname -a
+- neofetch
+
+**PCI devices**
+- lspci
+
+**USB devices**
+- lsusb
+
+**Block devices**
+- lsblk
+
+**Uptime of machine**
+- uptime
+
+**Disk usage info**
+- df -k
+
+**Bootlog info**
+- cat /var/log/boot.log
+
 # Kubernetes basics
 ## _Container orchestration tools_
 
