@@ -86,6 +86,55 @@
 
 (http://www.unixmantra.com/2013/04/unix-linux-file-permissions.html)
 
+### linux network ###
+
+**External ip**
+- curl ifconfig.me
+- dig +short myip.opendns.com @resolver1.opendns.com
+- netcat icanhazip.com 80 <<< $'GET / HTTP/1.1 Host: icanhazip.com ' |  tail -n1
+
+**Get wifi password**
+- cat /etc/NetworkManager/system-connections/[SSID] |  grep psk=
+
+**List network interfaces**
+- lspci |  egrep -i --color 'network|ethernet'
+- ifconfig -a
+- ip link show
+- lshw -class network
+- cat /proc/net/dev
+
+**Download file**
+- wget [url]
+- curl -O [url]
+
+**Get information about domain**
+- whois [ip]
+
+**Ping to another device**
+- ping [ip]
+
+**Configure network interface**
+- ifconfig
+
+**Show the hostname of your box**
+- hostname [ip]
+
+**Trace the path that a packet takes to its destination**
+- traceroute [ip]
+
+**elnet connection**
+- telnet [ip] [port]
+
+**DNS lookup and display server answer**
+- dig [ip]
+
+**Release ip and get a new one from DHCP**
+- dhclient -r
+
+**List open sockets**
+- netstat -l
+- lsof -i
+
 # Kubernetes basics
 ## _Container orchestration tools_
 
