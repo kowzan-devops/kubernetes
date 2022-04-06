@@ -82,6 +82,9 @@
 - getent passwd
 - cat /etc/passwd
 
+### unix-linux-file-permissions ###
+
+(http://www.unixmantra.com/2013/04/unix-linux-file-permissions.html)
 
 # Kubernetes basics
 ## _Container orchestration tools_
