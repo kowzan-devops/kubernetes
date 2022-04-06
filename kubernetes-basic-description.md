@@ -1,5 +1,7 @@
 # Linux
 
+### SYSTEM INFORMATION AND CONTROL
+
 **Info about the linux system**
 - cat /proc/version
 - uname -a
@@ -22,6 +24,64 @@
 
 **Bootlog info**
 - cat /var/log/boot.log
+
+**Stop service start service bluetooth**
+- service bluetooth stop
+- service bluetooth start
+
+### LINUX USERS AND GROUPS
+
+**Create group**
+- groupadd [name]
+- addgroup [name]
+
+**Delete group**
+- groupdel [name]
+
+**Rename group**
+- groupmod -n [newGroupname] [oldGroupname]
+
+**Create user**
+- useradd [name]
+- adduser [name]
+
+**Delete user**
+- userdel [name]
+- deluser [name]
+
+**Rename user**
+- usermod -l [newUsername] [oldUsername]
+
+**Set user password**
+- passwd [name]
+
+**Grant sudo privileges to an existing user**
+- usermod -a -G sudo [user]
+- adduser [user] sudo
+
+**User information**
+- finger [user]
+
+**Add existing user to group**
+- usermod -aG [groupName] [userName]
+- adduser [userName] [groupName]
+- gpasswd -a [userName] [groupName]
+
+**Add new user to group**
+- useradd -G [group] [user]
+
+**Remove user from group**
+- gpasswd -d [user] [group]
+- deluser [user] [group]
+
+**List all groups**
+- getent group
+- cat /etc/group
+
+**List all users**
+- getent passwd
+- cat /etc/passwd
+
 
 # Kubernetes basics
 ## _Container orchestration tools_
