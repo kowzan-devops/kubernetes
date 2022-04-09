@@ -6,6 +6,9 @@
 
 # check relations for vlc
 - snap connections vlc
+
+# show video camera
+- mpv --no-border -vf=hflip /dev/video0
 ### SYSTEM INFORMATION AND CONTROL
 
 **Info about the linux system**
