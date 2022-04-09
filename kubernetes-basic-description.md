@@ -1,3 +1,145 @@
+# Linux
+
+### SYSTEM INFORMATION AND CONTROL
+
+**Info about the linux system**
+- cat /proc/version
+- uname -a
+- neofetch
+
+**PCI devices**
+- lspci
+
+**USB devices**
+- lsusb
+
+**Block devices**
+- lsblk
+
+**Uptime of machine**
+- uptime
+
+**Disk usage info**
+- df -k
+
+**Bootlog info**
+- cat /var/log/boot.log
+
+**Stop service start service bluetooth**
+- service bluetooth stop
+- service bluetooth start
+
+### LINUX USERS AND GROUPS
+
+**Create group**
+- groupadd [name]
+- addgroup [name]
+
+**Delete group**
+- groupdel [name]
+
+**Rename group**
+- groupmod -n [newGroupname] [oldGroupname]
+
+**Create user**
+- useradd [name]
+- adduser [name]
+
+**Delete user**
+- userdel [name]
+- deluser [name]
+
+**Rename user**
+- usermod -l [newUsername] [oldUsername]
+
+**Set user password**
+- passwd [name]
+
+**Grant sudo privileges to an existing user**
+- usermod -a -G sudo [user]
+- adduser [user] sudo
+
+**User information**
+- finger [user]
+
+**Add existing user to group**
+- usermod -aG [groupName] [userName]
+- adduser [userName] [groupName]
+- gpasswd -a [userName] [groupName]
+
+**Add new user to group**
+- useradd -G [group] [user]
+
+**Remove user from group**
+- gpasswd -d [user] [group]
+- deluser [user] [group]
+
+**List all groups**
+- getent group
+- cat /etc/group
+
+**List all users**
+- getent passwd
+- cat /etc/passwd
+
+### unix-linux-file-permissions ###
+
+(http://www.unixmantra.com/2013/04/unix-linux-file-permissions.html)
+
+### linux network ###
+
+**External ip**
+- curl ifconfig.me
+- dig +short myip.opendns.com @resolver1.opendns.com
+- netcat icanhazip.com 80 <<< $'GET / HTTP/1.1 Host: icanhazip.com ' |  tail -n1
+
+**Get wifi password**
+- cat /etc/NetworkManager/system-connections/[SSID] |  grep psk=
+
+**List network interfaces**
+- lspci |  egrep -i --color 'network|ethernet'
+- ifconfig -a
+- ip link show
+- lshw -class network
+- cat /proc/net/dev
+
+**Download file**
+- wget [url]
+- curl -O [url]
+
+**Get information about domain**
+- whois [ip]
+
+**Ping to another device**
+- ping [ip]
+
+**Configure network interface**
+- ifconfig
+
+**Show the hostname of your box**
+- hostname [ip]
+
+**Trace the path that a packet takes to its destination**
+- traceroute [ip]
+
+**elnet connection**
+- telnet [ip] [port]
+
+**DNS lookup and display server answer**
+- dig [ip]
+
+**Release ip and get a new one from DHCP**
+- dhclient -r
+
+**List open sockets**
+- netstat -l
+- lsof -i
+
+### git ###
+
+**git fork**
+- git fork creates a completely independent copy of Git repository. In contrast to a fork, a Git clone creates a linked copy that will continue to synchronize with the target repository.
+
 # Kubernetes basics
 ## _Container orchestration tools_
 
