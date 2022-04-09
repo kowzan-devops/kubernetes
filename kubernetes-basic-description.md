@@ -4,6 +4,8 @@
 - lshw | grep -z -e "PC-LM1E" -e "Broadcom" # case is not ignored
 - lshw | grep -iz -e "PC-LM1E" -e "Broadcom" # case is ignored
 
+# check relations for vlc
+- snap connections vlc
 ### SYSTEM INFORMATION AND CONTROL
 
 **Info about the linux system**
