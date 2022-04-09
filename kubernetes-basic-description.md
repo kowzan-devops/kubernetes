@@ -1,5 +1,9 @@
 # Linux
 
+**search with grep but full file**
+- lshw | grep -z -e "PC-LM1E" -e "Broadcom" # case is not ignored
+- lshw | grep -iz -e "PC-LM1E" -e "Broadcom" # case is ignored
+
 ### SYSTEM INFORMATION AND CONTROL
 
 **Info about the linux system**
