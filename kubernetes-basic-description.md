@@ -149,6 +149,12 @@
 **git fork**
 - git fork creates a completely independent copy of Git repository. In contrast to a fork, a Git clone creates a linked copy that will continue to synchronize with the target repository.
 
+### downloading ###
+
+**wget multiple files**
+- wget -x -i http://pastebin.com/raw/nyFtp2EG
+- in this raw file we have multiple linkes 1 by 1 in each line
+
 # Kubernetes basics
 ## _Container orchestration tools_
 
