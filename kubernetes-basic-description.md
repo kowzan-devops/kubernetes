@@ -1,5 +1,8 @@
 # Linux
 
+# read Google TTS in English
+wget -q -U Mozilla -O "$*.mp3" "https://translate.google.com.vn/translate_tts?ie=UTF-8&q=$*&tl=en&client=tw-ob"
+
 **search with grep but full file**
 - lshw | grep -z -e "PC-LM1E" -e "Broadcom" # case is not ignored
 - lshw | grep -iz -e "PC-LM1E" -e "Broadcom" # case is ignored
@@ -9,6 +12,7 @@
 
 # show video camera
 - mpv --no-border -vf=hflip /dev/video0
+
 ### SYSTEM INFORMATION AND CONTROL
 
 **Info about the linux system**
